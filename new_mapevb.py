@@ -38,10 +38,10 @@ def read_data(A_xvgs, B_xvgs, alpha, hij, dl):
         for j in range(N):
             feps[i][2][j] = (feps[i][0][j] - feps[i][1][j] - alpha) # e1-e2
             feps[i][3][j] = (1-i*dl)*(feps[i][0][j]) +\
-                            (i*dl)*(feps[i][1][j] + alpha) # V(l)
+                            (i*dl)*(feps[i][1][j] + alpha) # V(l) mixing (1-lambda)A+ lambdaB
             
             feps[i][4][j] = 0.5 * (feps[i][0][j] + feps[i][1][j] + alpha) -\
-                            0.5 * m.sqrt((feps[i][2][j])**2 + 4 * hij ** 2) # evb
+                            0.5 * m.sqrt((feps[i][2][j])**2 + 4 * hij ** 2) # evb ground state energy(eq2) A-B (H11 H22)
             
             feps[i][5][j] = (feps[i][0][j] ) - feps[i][3][j] # e1-V(l)
             feps[i][6][j] = (feps[i][1][j]  + alpha) - feps[i][3][j] # e2-V(l)
